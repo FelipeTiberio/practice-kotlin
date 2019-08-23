@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">aulaAposAndroid3_5</string>
+
+    <string-array name="alimentos_nomes">
+        <item>Café</item>
+        <item>Feijão</item>
+        <item>Macarrão</item>
+        <item>Açucar</item>
+        <item>Leite</item>
+    </string-array>
+
+
+    <string-array name="alimentos_precos">
+        <item>4.5</item>
+        <item>5.9</item>
+        <item>4.9</item>
+        <item>3.6</item>
+        <item>2.9</item>
+    </string-array>
+
+</resources>

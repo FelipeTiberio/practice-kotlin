@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">About Me</string>
+    <string name="felipe_tiberio">Felipe Tiberio</string>
+    <string name="yellow_star">Yellow_star</string>
+    <string name="str_bio">   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean in quam urna.
+    \n Phasellus sed convallis neque, eu rhoncus orci. Vestibulum ante ipsum primis in
+        \n faucibus orci luctus et ultrices posuere cubilia Curae; Nullam sed fermentum purus.
+        \n Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia
+        \n Curae; Maecenas et tellus pharetra, mattis orci vel, pharetra libero. Donec elementum
+        \n ut lorem et pharetra. Suspendisse vehicula nulla vitae erat faucibus volutpat.
+        \n Suspendisse massa mi, consectetur ac libero eu, elementum placerat elit.
+        \n Maecenas venenatis sagittis magna, vitae molestie justo laoreet id. Proin
+        \n feugiat eros sed sollicitudin maximus. Duis semper ac arcu quis venenatis.
+        \nI,n eget erat facilisis, lobortis dui hendrerit, tempor nibh. </string>
+    <string name="nickname_hint"> What is yout nickname </string>
+    <string name="done">Done</string>
+
+
+</resources>

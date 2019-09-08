@@ -9,8 +9,6 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
-import androidx.databinding.DataBindingUtil
-import com.imd.ufrn.aboutme.databinding.ActivityMainBinding
 
 /*
 * Uma pequena descrição das coisas que estudei quando estava fazendo esse simples app
@@ -20,29 +18,36 @@ import com.imd.ufrn.aboutme.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityMainBinding
+    //private lateinit var binding: ActivityMainBinding
+    private lateinit var nickname_edit : EditText
+    private  lateinit var nickname_text : TextView
+    private lateinit var done_button : Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        //setContentView(R.layout.activity_main)
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+        setContentView(R.layout.activity_main)
+        //binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
-        //nickname_edit =  findViewById(R.id.nickname_edit)
-        //nickname_text = findViewById(R.id.nickname_text)
-        //done_button   = findViewById(R.id.done_button)
-        //done_button.setOnClickListener { this.addNickname(done_button) }
-        binding.doneButton.setOnClickListener { this.addNickname(it) }
+        nickname_edit =  findViewById(R.id.nickname_edit)
+        nickname_text = findViewById(R.id.nickname_text)
+        done_button   = findViewById(R.id.done_button)
+        done_button.setOnClickListener { this.addNickname(done_button) }
+      //  binding.doneButton.setOnClickListener { this.addNickname(it) }
 
     }
 
     private fun addNickname(view : View){
-
+        /*
         binding.apply {
             nameText.text = nicknameEdit.text
             nicknameText.visibility = View.VISIBLE
             doneButton.visibility = View.GONE
             nicknameEdit.visibility = View.GONE
-        }
+        }*/
+        nickname_text.text = nickname_edit.text
+        nickname_text.visibility = View.VISIBLE
+        done_button.visibility = View.GONE
+        nickname_edit.visibility = View.GONE
         // Código para esconder o teclado que foi usado para escrever o nickname
         val inn = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         inn.hideSoftInputFromWindow(view.windowToken, 0)

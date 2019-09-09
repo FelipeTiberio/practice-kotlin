@@ -5,4 +5,4 @@ Alguns pequenos projetos de estudos que fiz durante o tempo que estava estudando
 
 
 
-![Yoda](/home/felipe/Documentos/practice-pythonkotlin/yoda.jpeg)
+![Yoda](yoda.jpeg)

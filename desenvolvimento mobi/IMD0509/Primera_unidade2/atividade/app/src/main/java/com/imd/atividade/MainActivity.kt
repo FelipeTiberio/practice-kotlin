@@ -27,35 +27,20 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         initReciclerView()
-        buttonteste.setOnClickListener {
-            addNote()
-            i++
-        }
-
     }
 
-    
     private  fun initReciclerView(){
         mainRecyclerView.adapter = adapter
         val linearLayout = LinearLayoutManager(this)
         mainRecyclerView.layoutManager = linearLayout
 
         initSwipeDelete()
-
-    }
-
-    private fun addNote(){
-        val note= Note("teste ${i}", "teste ${i}")
-
-        notes.add(note)
-        adapter.notifyItemInserted(notes.lastIndex)
     }
 
     private fun onMessageItemClick(note: Note){
         var id : Int = notes.indexOf(note)
-        var s = "${note.title}\n ${note.text}"
-        Toast.makeText(this,s,Toast.LENGTH_SHORT).show()
         var intent : Intent = Intent(this, SecondActivity::class.java)
+
         intent.putExtra("note", note)
         intent.putExtra("id", id)
         startActivityForResult(intent, MAIN_UPDATENOTE)

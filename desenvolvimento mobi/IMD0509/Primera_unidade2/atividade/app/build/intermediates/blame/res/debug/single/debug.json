@@ -8,12 +8,12 @@
         "source": "/home/felipe/AndroidStudioProjects/atividade/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png"
     },
     {
-        "merged": "/home/felipe/AndroidStudioProjects/atividade/app/build/intermediates/res/merged/debug/layout_note_item.xml.flat",
-        "source": "/home/felipe/AndroidStudioProjects/atividade/app/src/main/res/layout/note_item.xml"
-    },
-    {
         "merged": "/home/felipe/AndroidStudioProjects/atividade/app/build/intermediates/res/merged/debug/mipmap-mdpi_ic_launcher.png.flat",
         "source": "/home/felipe/AndroidStudioProjects/atividade/app/src/main/res/mipmap-mdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/home/felipe/AndroidStudioProjects/atividade/app/build/intermediates/res/merged/debug/layout_note_item.xml.flat",
+        "source": "/home/felipe/AndroidStudioProjects/atividade/app/src/main/res/layout/note_item.xml"
     },
     {
         "merged": "/home/felipe/AndroidStudioProjects/atividade/app/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_launcher_background.png.flat",
@@ -38,6 +38,10 @@
     {
         "merged": "/home/felipe/AndroidStudioProjects/atividade/app/build/intermediates/res/merged/debug/mipmap-hdpi_ic_launcher_round.png.flat",
         "source": "/home/felipe/AndroidStudioProjects/atividade/app/src/main/res/mipmap-hdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/home/felipe/AndroidStudioProjects/atividade/app/build/intermediates/res/merged/debug/layout_dialog_my_edit.xml.flat",
+        "source": "/home/felipe/AndroidStudioProjects/atividade/app/src/main/res/layout/dialog_my_edit.xml"
     },
     {
         "merged": "/home/felipe/AndroidStudioProjects/atividade/app/build/intermediates/res/merged/debug/drawable-mdpi_ic_launcher_background.png.flat",

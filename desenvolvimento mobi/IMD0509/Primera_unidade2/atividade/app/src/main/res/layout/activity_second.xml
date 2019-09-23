@@ -16,6 +16,7 @@
         android:layout_weight="4"
         android:inputType="textAutoComplete|textMultiLine|textCapCharacters|text"
         android:autofillHints=""
+        android:gravity="top|left"
 
         />
 

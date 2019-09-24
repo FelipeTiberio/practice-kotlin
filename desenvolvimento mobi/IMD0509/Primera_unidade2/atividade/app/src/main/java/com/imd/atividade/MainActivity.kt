@@ -17,7 +17,6 @@ const val MAIN_UPDATENOTE = 15
 
 class MainActivity : AppCompatActivity() {
 
-    var i : Int = 0
     private var notes = mutableListOf<Note>()
     private var adapter = NoteAdapter(notes, this::onMessageItemClick)
 
@@ -30,11 +29,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     private  fun initReciclerView(){
+
         mainRecyclerView.adapter = adapter
         val linearLayout = LinearLayoutManager(this)
         mainRecyclerView.layoutManager = linearLayout
-
         initSwipeDelete()
+
     }
 
     private fun onMessageItemClick(note: Note){
@@ -56,6 +56,8 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         val id = item.itemId
         val buttonAdd_id = R.id.addNotebutton
+
+
         var note = Note("", "")
 
         if(id == buttonAdd_id){

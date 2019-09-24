@@ -26,7 +26,9 @@ class MyEditDialog : DialogFragment() {
             }
         }
 
-        builder.setNegativeButton("Cancelar") { dialogInterface, i -> dismiss() }
+        builder.setNegativeButton("Cancelar") {
+                dialogInterface, i -> dismiss()
+        }
 
         val view = activity!!.layoutInflater.inflate(R.layout.dialog_my_edit, null)
         editText = view.findViewById(R.id.edt_texto)
@@ -34,7 +36,7 @@ class MyEditDialog : DialogFragment() {
         return builder.create()
     }
 
-    interface OnTextListener {
+    interface OnTextListener  {
         fun onSetText(text: String)
     }
 

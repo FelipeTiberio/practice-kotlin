@@ -19,8 +19,13 @@ class SecondActivity : AppCompatActivity() {
         newNote = intent.getSerializableExtra("note") as Note
         var id : Int = intent.getSerializableExtra("id") as Int
 
-        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
-        supportActionBar!!.title = "New Note"
+
+        // action bar secondActivity
+        val actionBar  = supportActionBar
+        actionBar!!.title = "Nova nota"
+        actionBar.setDisplayHomeAsUpEnabled(true)
+
+
         textNote_editText.setText( newNote.text)
 
         button_gravar.setOnClickListener {
@@ -29,9 +34,10 @@ class SecondActivity : AppCompatActivity() {
             intentToReturn.putExtra("newNote", newNote)
             intentToReturn.putExtra("id", id)
 
-            openEditDialog(it)
 
             setResult(Activity.RESULT_OK, intentToReturn)
+
+            openEditDialog()
             finish()
         }
 
@@ -42,12 +48,20 @@ class SecondActivity : AppCompatActivity() {
     }
 
 
-    fun openEditDialog(view: View) {
+    fun openEditDialog()  {
         newNote.title = "fuuuuuuuuuu"
         MyEditDialog.show(supportFragmentManager, object : MyEditDialog.OnTextListener {
             override fun onSetText(text: String) {
-                Toast.makeText(this@SecondActivity, "Texto: $text", Toast.LENGTH_SHORT).show()
+               // Toast.makeText(this@SecondActivity, "Texto: $text", Toast.LENGTH_SHORT).show()
+                newNote.title = text
             }
         })
+
+       // finish()
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        finish()
+        return true
     }
 }

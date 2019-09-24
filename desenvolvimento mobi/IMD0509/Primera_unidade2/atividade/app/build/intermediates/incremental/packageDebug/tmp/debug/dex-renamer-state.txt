@@ -1,4 +1,4 @@
-#Mon Sep 23 00:36:11 BRT 2019
-base.0=/home/felipe/AndroidStudioProjects/atividade/app/build/intermediates/dex/debug/out/classes.dex
+#Tue Sep 24 09:50:41 BRT 2019
+base.0=/home/android.bti/Documentos/practice-kotlin/desenvolvimento mobi/IMD0509/Primera_unidade2/atividade/app/build/intermediates/dex/debug/mergeDexDebug/out/classes.dex
 path.0=classes.dex
 renamed.0=classes.dex

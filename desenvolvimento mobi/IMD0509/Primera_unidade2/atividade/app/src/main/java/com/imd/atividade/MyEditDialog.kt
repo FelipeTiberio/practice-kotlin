@@ -22,7 +22,7 @@ class MyEditDialog : DialogFragment() {
         builder.setPositiveButton("OK") { dialogInterface, i ->
             if (listener != null) {
                 val text = editText!!.text.toString()
-                listener!!.onSetTExt(text)
+                listener!!.onSetText(text)
             }
         }
 
@@ -35,7 +35,7 @@ class MyEditDialog : DialogFragment() {
     }
 
     interface OnTextListener {
-        fun onSetTExt(text: String)
+        fun onSetText(text: String)
     }
 
     companion object {

@@ -25,7 +25,6 @@ class SecondActivity : AppCompatActivity() {
 
         button_gravar.setOnClickListener {
             newNote.text = textNote_editText.text.toString()
-            // newNote.title = "title retornado"
             var intentToReturn: Intent = Intent()
             intentToReturn.putExtra("newNote", newNote)
             intentToReturn.putExtra("id", id)
@@ -44,10 +43,10 @@ class SecondActivity : AppCompatActivity() {
 
 
     fun openEditDialog(view: View) {
-        newNote.title = "Tfuuuuuuuuuu"
+        newNote.title = "fuuuuuuuuuu"
         MyEditDialog.show(supportFragmentManager, object : MyEditDialog.OnTextListener {
-            override fun onSetTExt(text: String) {
-                //Toast.makeText(this@SecondActivity, "Texto: $text", Toast.LENGTH_SHORT).show()
+            override fun onSetText(text: String) {
+                Toast.makeText(this@SecondActivity, "Texto: $text", Toast.LENGTH_SHORT).show()
             }
         })
     }

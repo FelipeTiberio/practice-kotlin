@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/home/felipe/AndroidStudioProjects/atividade/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-hdpi-v4/values-hdpi-v4.xml",
+            "outputFile": "/home/android.bti/Documentos/practice-kotlin/desenvolvimento mobi/IMD0509/Primera_unidade2/atividade/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-hdpi-v4/values-hdpi-v4.xml",
             "map": [
                 {
-                    "source": "/home/felipe/.gradle/caches/transforms-2/files-2.1/dadbeb25430cd54fc6a0f915801c7b25/appcompat-1.1.0/res/values-hdpi-v4/values-hdpi-v4.xml",
+                    "source": "/home/android.bti/.gradle/caches/transforms-2/files-2.1/412b60cf7eebc7410ce70d9176643cb5/appcompat-1.1.0/res/values-hdpi-v4/values-hdpi-v4.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

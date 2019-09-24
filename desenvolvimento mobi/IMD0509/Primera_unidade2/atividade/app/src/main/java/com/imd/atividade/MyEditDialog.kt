@@ -1,6 +1,8 @@
-package com.example.exemplodialogskotlin
+package com.imd.atividade
 
+import android.app.Activity
 import android.app.Dialog
+import android.content.Context
 import android.os.Bundle
 import android.widget.EditText
 
@@ -15,14 +17,17 @@ class MyEditDialog : DialogFragment() {
     private var listener: OnTextListener? = null
 
 
+
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val builder = AlertDialog.Builder(activity!!)
         builder.setTitle("Título")
 
         builder.setPositiveButton("OK") { dialogInterface, i ->
-            if (listener != null) {
+            if (listener != null && this.context !=  null) {
                 val text = editText!!.text.toString()
                 listener!!.onSetText(text)
+
+                (this.context as Activity).finish()
             }
         }
 
@@ -44,9 +49,10 @@ class MyEditDialog : DialogFragment() {
 
         fun show(fm: FragmentManager, listener: OnTextListener) {
 
-            val dialog = MyEditDialog()
+            var dialog = MyEditDialog()
             dialog.listener = listener
             dialog.show(fm, "textDialog")
+           // dialog.context
 
         }
     }

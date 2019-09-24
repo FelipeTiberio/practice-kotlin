@@ -4,9 +4,7 @@ import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
-import android.widget.Toast
-import com.example.exemplodialogskotlin.MyEditDialog
+
 import kotlinx.android.synthetic.main.activity_second.*
 
 class SecondActivity : AppCompatActivity() {
@@ -38,7 +36,6 @@ class SecondActivity : AppCompatActivity() {
             setResult(Activity.RESULT_OK, intentToReturn)
 
             openEditDialog()
-            finish()
         }
 
         button_cancelar.setOnClickListener {
@@ -49,15 +46,12 @@ class SecondActivity : AppCompatActivity() {
 
 
     fun openEditDialog()  {
-        newNote.title = "fuuuuuuuuuu"
+
         MyEditDialog.show(supportFragmentManager, object : MyEditDialog.OnTextListener {
             override fun onSetText(text: String) {
-               // Toast.makeText(this@SecondActivity, "Texto: $text", Toast.LENGTH_SHORT).show()
                 newNote.title = text
             }
         })
-
-       // finish()
     }
 
     override fun onSupportNavigateUp(): Boolean {

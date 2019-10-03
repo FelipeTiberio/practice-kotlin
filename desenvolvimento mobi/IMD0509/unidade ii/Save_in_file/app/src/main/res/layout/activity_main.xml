@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".MainActivity">
+
+    <EditText
+        android:id="@+id/main_editText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <RadioGroup
+        android:id="@+id/radio_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RadioButton
+            android:id="@+id/interna_radio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Memória interna" />
+
+        <RadioButton
+            android:id="@+id/externa_private_radio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Memória externa (Privado)" />
+
+        <RadioButton
+            android:id="@+id/externa_publico_radio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Memória externa (Pública)" />
+
+    </RadioGroup>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <Button
+            android:text="Salvar"
+            android:id="@+id/salvar_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.25"
+            />
+
+        <Button
+            android:id="@+id/ler_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.25"
+            android:text="Ler" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:layout_weight="0.5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/text_save_textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+    </LinearLayout>
+
+
+
+</LinearLayout>

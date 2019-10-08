@@ -38,23 +38,15 @@ class SecondActivity : AppCompatActivity() {
 
 
     private fun onMessageItemClick(post: Post){
-        /*
-        var id : Int = notes.indexOf(note)
-        var intent : Intent = Intent(this, SecondActivity::class.java)
-
-        intent.putExtra("note", note)
-        intent.putExtra("id", id)
-        intent.putExtra( "tipoNote", "update")
-        startActivityForResult(intent, MAIN_UPDATENOTE)*/
+       //@TODO
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         val id = item.itemId
-        val buttonAdd_id = R.id.sairButton
+        val buttonLogout_id = R.id.sairButton
+        val buttonCadastrar_id = R.id.cadastrar_button
 
-        //var note = Note("", "")
-
-        if(id == buttonAdd_id){
+        if(id == buttonLogout_id){
             //var intent = Intent(this, SecondActivity::class.java)
             //intent.putExtra("note",note)
             //intent.putExtra("id", notes.lastIndex +1)
@@ -64,7 +56,14 @@ class SecondActivity : AppCompatActivity() {
             finish()
             return true
 
-        }else{
+        }
+        else if(id == buttonCadastrar_id){
+            var intent : Intent = Intent(this, CadastroActivity::class.java)
+            startActivityForResult(intent, 666)
+            return true
+        }
+
+        else{
             return super.onOptionsItemSelected(item)
         }
 

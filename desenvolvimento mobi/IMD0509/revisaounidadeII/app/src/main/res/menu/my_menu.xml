@@ -3,8 +3,11 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:title="Sair"
+        android:id="@+id/cadastrar_button"
+        android:title="Cadastrar Post"
+        app:showAsAction="always" />
+    <item
         android:id="@+id/sairButton"
-        app:showAsAction="always"
-        />
+        android:title="Logout"
+        app:showAsAction="always" />
 </menu>

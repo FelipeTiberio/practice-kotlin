@@ -1,9 +1,12 @@
 package com.e.revisaounidadeii
 
+
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.Editable
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_main.senha_editText
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -15,20 +18,27 @@ class MainActivity : AppCompatActivity() {
         val edit = pref.edit()
 
         if (pref.getString("email", null) != null){
-            email_editText.text = pref.getString("email", null) as Editable
+            email_editText.setText(pref.getString("email", ""))
         }
 
         if(pref.getString("senha", null ) != null){
-            senha_editText.text = pref.getString("senha", null) as Editable
+            senha_editText.setText(pref.getString("senha", ""))
         }
 
         login_button.setOnClickListener {
+            var intent = Intent(this, SecondActivity::class.java)
+            startActivity(intent)
 
         }
 
         novo_cadastro_button.setOnClickListener {
-            edit.putString("email", email_editText.text.toString())
-            edit.putString("senha", senha_editText.text.toString())
+
+
+            var intent = Intent(this , CadastroActivity::class.java)
+            intent.putExtra("email", email_editText.text.toString())
+            intent.putExtra("senha", senha_editText.text.toString())
+
+            startActivity(intent)
         }
 
     }

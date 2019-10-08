@@ -4,7 +4,6 @@
 
     <item
         android:title="Sair"
-
         android:id="@+id/sairButton"
         app:showAsAction="always"
         />

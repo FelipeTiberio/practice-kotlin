@@ -1,4 +1,4 @@
-package com.e.revisaounidadeii.data
+package com.e.revisaounidadeii
 
 import java.io.Serializable
 

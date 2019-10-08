@@ -6,14 +6,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp"
-    tools:context=".MainActivity">
+    tools:context=".CadastroActivity">
 
     <TextView
         android:id="@+id/login_textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Login"
+        android:text="Novo Usuário"
         android:paddingTop="20dp"
         android:gravity="center"
         />
@@ -32,19 +31,36 @@
         android:hint="Senha"
         />
 
-    <Button
-        android:id="@+id/login_button"
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:layout_weight="1"
+        >
+    <Button
+        android:id="@+id/limpar_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Clear"
         android:background="@color/colorAccent"
-        android:text="LOGIN" />
+        android:layout_weight="0.5"
+        />
 
     <Button
-        android:id="@+id/novo_cadastro_button"
-        android:layout_width="match_parent"
+        android:id="@+id/cadastrar_button"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="NOVO CADASTRO"
+        android:text="Cadastrar"
+        android:layout_gravity="end"
         android:background="@color/colorAccent"
+        android:layout_weight="0.5"
         />
+
+    </LinearLayout>
+
+
+
 
 </LinearLayout>

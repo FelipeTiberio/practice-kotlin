@@ -1,4 +1,4 @@
-package com.e.revisaounidadeii.data
+package com.e.revisaounidadeii
 
 const val DATABASE_NAME = "dbpost"
 const val DATABASE_VERSIN = 1

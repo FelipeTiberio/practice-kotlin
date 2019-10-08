@@ -1,4 +1,4 @@
-package com.e.revisaounidadeii.data
+package com.e.revisaounidadeii
 
 
 import android.content.Context
@@ -6,7 +6,10 @@ import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 
 class PostSqlHelper(context: Context) :
-    SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSIN) {
+    SQLiteOpenHelper(context,
+        DATABASE_NAME, null,
+        DATABASE_VERSIN
+    ) {
 
     override fun onCreate( sqLiteDatabase:  SQLiteDatabase?) {
 

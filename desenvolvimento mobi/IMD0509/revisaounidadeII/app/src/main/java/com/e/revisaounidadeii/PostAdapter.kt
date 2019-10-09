@@ -35,7 +35,7 @@ class PostAdapter (private  val posts: List<Post>, private val callback: (Post)-
 
         fun bindView(post : Post){
           this.itemView.title_textview.text = post.title
-            this.itemView.id_textview.text = post.id.toString()
+            //this.itemView.id_textview.text = post.id.toString()
             this.itemView.descricao_textview.text = post.text
         }
 

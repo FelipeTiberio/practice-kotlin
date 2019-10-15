@@ -1,4 +1,0 @@
-#Thu Oct 03 16:23:47 BRT 2019
-base.0=/home/felipe/Documentos/app/build/intermediates/dex/debug/out/classes.dex
-path.0=classes.dex
-renamed.0=classes.dex

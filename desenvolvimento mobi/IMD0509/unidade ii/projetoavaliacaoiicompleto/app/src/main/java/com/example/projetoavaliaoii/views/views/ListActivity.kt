@@ -21,6 +21,7 @@ class ListActivity : AppCompatActivity() {
     private  var tarefas  = mutableListOf<Tarefa>()
     private  var adapter  = TarefaAdapter(tarefas, this::onMessageItemClick, this::onNotaItemLongClick)
     private  var receiver : TarefaDelateBroadCast? = null
+    lateinit var intentFilter : IntentFilter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,9 +29,8 @@ class ListActivity : AppCompatActivity() {
 
         // notification
         var receiver = TarefaDelateBroadCast()
-        var intentFilter : IntentFilter = IntentFilter()
+        intentFilter  = IntentFilter()
         intentFilter.addAction("delete_tarefa")
-        registerReceiver(receiver, intentFilter)
 
         initReciclerView()
     }
@@ -46,8 +46,15 @@ class ListActivity : AppCompatActivity() {
         alertDialog.setMessage(" Pretende excluir a tarefa ${tarefas[posicao].title} ?")
 
         alertDialog.setPositiveButton("Sim", {_,_->
-            tarefas.removeAt(posicao)
-            adapter.notifyItemRemoved(posicao) })
+            if( tarefas[posicao].check == false ){
+                registerReceiver(receiver, intentFilter)
+                Toast.makeText(this, "Falata implementar a notificação ", Toast.LENGTH_LONG).show()
+
+            }else{
+                tarefas.removeAt(posicao)
+                adapter.notifyItemRemoved(posicao)
+            }
+        })
 
         alertDialog.setNegativeButton("Não", {_,_-> })
         alertDialog.show()
@@ -80,7 +87,11 @@ class ListActivity : AppCompatActivity() {
             finish()
 
         }else if(id == actionConcluir){
-            //@TODO
+
+            for ( tarefa in tarefas){
+                tarefa.check = true
+                adapter.notifyItemChanged( tarefas.indexOf(tarefa) )
+            }
 
         }
 

@@ -9,18 +9,19 @@ import com.example.projetonotificaon12.NotificationUtils
 class TarefaDelateBroadCast: BroadcastReceiver() {
     override fun onReceive(ctx: Context, intent: Intent) {
 
-        var on:Boolean = intent.getBooleanExtra("state",false)
+        //var on:Boolean = intent.getBooleanExtra("state",false)
+        var on : String? = intent.getStringExtra("delete_tarefa")
 
-        if(on){
+        if(on !=null ){
 
             Toast.makeText(ctx,"Modo Avião Ligado!", Toast.LENGTH_LONG).show()
             NotificationUtils.notificationSimple(ctx,"Modo Avião Ligado!")
 
-        }else{
+        }/*else{
 
             Toast.makeText(ctx,"Modo Avião Desligado!", Toast.LENGTH_LONG).show()
             NotificationUtils.notificationSimple(ctx,"Modo Avião Desligado!")
-        }
+        }*/
 
     }
 

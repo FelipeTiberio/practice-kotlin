@@ -4,4 +4,5 @@ import java.io.Serializable
 
 class Tarefa(var title : String, var  text : String): Serializable{
     var id : Long? = null
+    var check = false
 }

@@ -1,7 +1,9 @@
 package com.example.projetoavaliaoii.views.views
 
 import android.app.Activity
+import android.app.AlertDialog
 import android.content.Intent
+import android.content.IntentFilter
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
@@ -11,23 +13,45 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.projetoavaliaoii.R
 import com.example.projetoavaliaoii.views.adapter.TarefaAdapter
 import com.example.projetoavaliaoii.views.model.Tarefa
+import com.example.projetobroadcastatividadeairplane.TarefaDelateBroadCast
 import kotlinx.android.synthetic.main.activity_list.*
 
 class ListActivity : AppCompatActivity() {
 
-    private  var tarefas = mutableListOf<Tarefa>()
-    private  var adapter = TarefaAdapter(tarefas, this::onMessageItemClick)
+    private  var tarefas  = mutableListOf<Tarefa>()
+    private  var adapter  = TarefaAdapter(tarefas, this::onMessageItemClick, this::onNotaItemLongClick)
+    private  var receiver : TarefaDelateBroadCast? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_list)
 
+        // notification
+        var receiver = TarefaDelateBroadCast()
+        var intentFilter : IntentFilter = IntentFilter()
+        intentFilter.addAction("delete_tarefa")
+        registerReceiver(receiver, intentFilter)
 
         initReciclerView()
     }
 
     private fun onMessageItemClick(tarefa: Tarefa){
+        //Toast.makeText(this, "vc clickou em mim ${tarefa.id}", Toast.LENGTH_LONG).show()
+    }
 
+    fun onNotaItemLongClick(posicao: Int):Boolean{
+        var alertDialog = AlertDialog.Builder(this)
+
+        alertDialog.setTitle("Excluir a tarefa ${tarefas[posicao].text}")
+        alertDialog.setMessage(" Pretende excluir a tarefa ${tarefas[posicao].title} ?")
+
+        alertDialog.setPositiveButton("Sim", {_,_->
+            tarefas.removeAt(posicao)
+            adapter.notifyItemRemoved(posicao) })
+
+        alertDialog.setNegativeButton("Não", {_,_-> })
+        alertDialog.show()
+        return true
     }
 
     private  fun  initReciclerView(){
@@ -57,7 +81,6 @@ class ListActivity : AppCompatActivity() {
 
         }else if(id == actionConcluir){
             //@TODO
-
 
         }
 
@@ -100,6 +123,14 @@ class ListActivity : AppCompatActivity() {
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.actions ,menu)
         return true
+    }
+
+
+    override fun onDestroy() {
+        if(receiver != null){
+            unregisterReceiver(receiver)
+        }
+        super.onDestroy()
     }
 
 }

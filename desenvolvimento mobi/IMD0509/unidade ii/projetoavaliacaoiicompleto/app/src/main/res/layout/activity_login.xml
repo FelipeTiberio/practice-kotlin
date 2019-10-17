@@ -10,11 +10,11 @@
     >
 
 
-<!--    <ImageView-->
-<!--        android:id="@+id/imageView"-->
-<!--        android:layout_width="300dp"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        app:srcCompat="@drawable/imd" />-->
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/imd" />
 
     <EditText
         android:id="@+id/edtSenhaLogin"

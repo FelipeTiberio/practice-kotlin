@@ -33,16 +33,16 @@ class TarefaAdapter(private val tarefas: List<Tarefa>,
         holder.itemView.setOnClickListener {
             val note = tarefas[holder.adapterPosition]
 
-            if ( note.check == false){
+            if ( note.completa == false){
                 holder.itemView.setBackgroundColor(Color.TRANSPARENT)
                 holder.itemView.txtTitulo.paintFlags = Paint.STRIKE_THRU_TEXT_FLAG
-                tarefas[holder.adapterPosition].check = true
+                tarefas[holder.adapterPosition].completa = true
                 holder.itemView.checked.isChecked = true
 
             }else{
                 holder.itemView.setBackgroundColor(Color.WHITE)
                 holder.itemView.txtTitulo.paintFlags = 0
-                tarefas[holder.adapterPosition].check = false
+                tarefas[holder.adapterPosition].completa = false
                 holder.itemView.checked.isChecked = false
             }
             callback(note)
@@ -63,7 +63,7 @@ class TarefaAdapter(private val tarefas: List<Tarefa>,
             this.itemView.txtDescricao.text = note.text
             this.itemView.txtTitulo.text = note.title
 
-            if( note.check){
+            if( note.completa){
                 this.itemView.setBackgroundColor(Color.TRANSPARENT)
                 this.itemView.txtTitulo.paintFlags = Paint.STRIKE_THRU_TEXT_FLAG
                 this.itemView.checked.isChecked = true

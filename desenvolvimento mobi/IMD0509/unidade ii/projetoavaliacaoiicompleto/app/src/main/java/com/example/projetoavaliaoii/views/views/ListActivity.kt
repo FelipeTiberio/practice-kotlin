@@ -46,7 +46,7 @@ class ListActivity : AppCompatActivity() {
         alertDialog.setMessage(" Pretende excluir a tarefa ${tarefas[posicao].title} ?")
 
         alertDialog.setPositiveButton("Sim", {_,_->
-            if( tarefas[posicao].check == false ){
+            if( tarefas[posicao].completa == false ){
                 registerReceiver(receiver, intentFilter)
                 Toast.makeText(this, "Falata implementar a notificação ", Toast.LENGTH_LONG).show()
 
@@ -89,7 +89,7 @@ class ListActivity : AppCompatActivity() {
         }else if(id == actionConcluir){
 
             for ( tarefa in tarefas){
-                tarefa.check = true
+                tarefa.completa = true
                 adapter.notifyItemChanged( tarefas.indexOf(tarefa) )
             }
 

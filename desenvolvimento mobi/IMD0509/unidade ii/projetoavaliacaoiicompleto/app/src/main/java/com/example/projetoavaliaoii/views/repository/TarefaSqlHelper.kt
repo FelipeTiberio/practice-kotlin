@@ -4,6 +4,9 @@ import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 
+/** Define um classe que herde de SQLiteOpenHelper, responsável por criar o
+banco de dados **/
+
 class TarefaSqlHelper(context: Context):
     SQLiteOpenHelper(context, DATABASE_NAME,null, DATABASE_VERSION){
 

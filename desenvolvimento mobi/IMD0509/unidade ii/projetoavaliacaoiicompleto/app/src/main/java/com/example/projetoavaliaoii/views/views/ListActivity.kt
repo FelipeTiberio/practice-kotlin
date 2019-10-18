@@ -11,6 +11,7 @@ import android.view.MenuItem
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.projetoavaliaoii.R
+import com.example.projetoavaliaoii.views.SQLiteRepositoryTarefa
 import com.example.projetoavaliaoii.views.adapter.TarefaAdapter
 import com.example.projetoavaliaoii.views.model.Tarefa
 import com.example.projetobroadcastatividadeairplane.TarefaDelateBroadCast
@@ -22,21 +23,34 @@ class ListActivity : AppCompatActivity() {
     private  var adapter  = TarefaAdapter(tarefas, this::onMessageItemClick, this::onNotaItemLongClick)
     private  var receiver : TarefaDelateBroadCast? = null
     lateinit var intentFilter : IntentFilter
+    private  lateinit var noteSqlHelper: SQLiteRepositoryTarefa
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_list)
+
+        noteSqlHelper = SQLiteRepositoryTarefa(this, "tarefa")
 
         // notification
         var receiver = TarefaDelateBroadCast()
         intentFilter  = IntentFilter()
         intentFilter.addAction("delete_tarefa")
 
+         for( note in this.getTarefasFromDB()){
+            this.tarefas.add(note)
+        }
+
         initReciclerView()
     }
 
+    private  fun getTarefasFromDB() : ArrayList<Tarefa> {
+        return noteSqlHelper.notesArray()
+    }
+
+
     private fun onMessageItemClick(tarefa: Tarefa){
-        //Toast.makeText(this, "vc clickou em mim ${tarefa.id}", Toast.LENGTH_LONG).show()
+        var posicao = tarefas.indexOf(tarefa)
+        noteSqlHelper.update( tarefas[posicao])
     }
 
     fun onNotaItemLongClick(posicao: Int):Boolean{
@@ -51,6 +65,7 @@ class ListActivity : AppCompatActivity() {
                 Toast.makeText(this, "Falata implementar a notificação ", Toast.LENGTH_LONG).show()
 
             }else{
+                noteSqlHelper.remove(tarefas[posicao])
                 tarefas.removeAt(posicao)
                 adapter.notifyItemRemoved(posicao)
             }
@@ -113,8 +128,8 @@ class ListActivity : AppCompatActivity() {
                 // objeto retornado pela segunda activity
                 var returnTarefa = data.getSerializableExtra("tarefa") as Tarefa
                 // id de returnNote no banco
-                //var id : Long? = noteSqlHelper.insert(returnNote)
-                //returnNote.id = id
+                var id : Long? = noteSqlHelper.insert(returnTarefa)
+                returnTarefa.id = id
                 tarefas.add(returnTarefa)
                 adapter.notifyItemInserted(tarefas.lastIndex)
 

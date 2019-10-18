@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.projetoavaliaoii.R
+import com.example.projetoavaliaoii.views.SQLiteRepositoryTarefa
 import com.example.projetoavaliaoii.views.model.Tarefa
 import kotlinx.android.synthetic.main.item_tarefa.view.*
 
@@ -17,6 +18,7 @@ class TarefaAdapter(private val tarefas: List<Tarefa>,
     : RecyclerView.Adapter<TarefaAdapter.LocalViewHolder>()
 {
     private var check  = false
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LocalViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_tarefa, parent, false)
@@ -29,6 +31,7 @@ class TarefaAdapter(private val tarefas: List<Tarefa>,
 
     override fun onBindViewHolder(holder: LocalViewHolder, position: Int) {
         holder.bindView(tarefas[position])
+
 
         holder.itemView.setOnClickListener {
             val note = tarefas[holder.adapterPosition]

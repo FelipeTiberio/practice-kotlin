@@ -40,7 +40,7 @@ class ListActivity : AppCompatActivity() {
 
         intentFilter  = IntentFilter()
         intentFilter.addAction("delete_tarefa")
-
+        intentFilter.addAction("tarefa_cadastrada")
 
          for( note in this.getTarefasFromDB()){
             this.tarefas.add(note)
@@ -70,6 +70,7 @@ class ListActivity : AppCompatActivity() {
         alertDialog.setPositiveButton("Sim", {_,_->
             if( tarefas[posicao].completa == false ){
                 var intent = Intent("delete_tarefa")
+                intent.putExtra( "tarefa", tarefas[posicao])
                 sendBroadcast(intent)
 
             }else{
@@ -141,10 +142,10 @@ class ListActivity : AppCompatActivity() {
                 tarefas.add(returnTarefa)
                 adapter.notifyItemInserted(tarefas.lastIndex)
 
-                Toast.makeText(this, "Nova nota salva", Toast.LENGTH_SHORT).show()
+                var intent = Intent("tarefa_cadastrada")
+                intent.putExtra( "tarefa", tarefas.last())
+                sendBroadcast(intent)
             }
-
-
             else {
                 Toast.makeText(
                     this, "Algum erro ocorreu, saõ foi possivel salva a tarefa", Toast.LENGTH_LONG

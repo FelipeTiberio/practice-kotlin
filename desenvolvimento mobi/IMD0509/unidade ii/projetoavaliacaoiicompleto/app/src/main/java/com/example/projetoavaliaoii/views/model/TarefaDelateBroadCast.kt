@@ -4,31 +4,20 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.widget.Toast
+import com.example.projetoavaliaoii.views.model.Tarefa
 import com.example.projetonotificaon12.NotificationUtils
 
 class TarefaDelateBroadCast: BroadcastReceiver() {
     override fun onReceive(ctx: Context, intent: Intent) {
 
-        //var on:Boolean = intent.getBooleanExtra("state",false)
-        /*
-        var on : String? = intent.getStringExtra("delete_tarefa")
-
-        if(on !=null ){
-
-            Toast.makeText(ctx,"Modo Avião Ligado!", Toast.LENGTH_LONG).show()
-            NotificationUtils.notificationSimple(ctx,"Modo Avião Ligado!")
-
-        }/*else{
-
-            Toast.makeText(ctx,"Modo Avião Desligado!", Toast.LENGTH_LONG).show()
-            NotificationUtils.notificationSimple(ctx,"Modo Avião Desligado!")
-        }*/*/
-
         var action = intent.action
+        var tarefa= intent.getSerializableExtra("tarefa") as Tarefa
+        var txt = "Tarefa: ${tarefa.id}, Titulo: ${tarefa.title}"
 
         if ( action == "delete_tarefa"){
-            Toast.makeText(ctx, " irá lançar uma notificação ", Toast.LENGTH_LONG).show()
-            NotificationUtils.notificationSimple(ctx, "Tarefa não pode ser excluida")
+            NotificationUtils.notificationSimple(ctx, "Tafera não pode ser deletada", txt)
+        }else if ( action == "tarefa_cadastrada"){
+            NotificationUtils.notificationSimple(ctx, "Nova tarefa cadastrada.", txt)
         }
 
     }

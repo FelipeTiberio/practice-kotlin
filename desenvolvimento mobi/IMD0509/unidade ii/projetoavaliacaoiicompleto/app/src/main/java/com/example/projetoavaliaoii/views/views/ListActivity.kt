@@ -15,33 +15,41 @@ import com.example.projetoavaliaoii.views.SQLiteRepositoryTarefa
 import com.example.projetoavaliaoii.views.adapter.TarefaAdapter
 import com.example.projetoavaliaoii.views.model.Tarefa
 import com.example.projetobroadcastatividadeairplane.TarefaDelateBroadCast
+import com.example.projetosqlite.repository.sqlite.TABLE_NAME
 import kotlinx.android.synthetic.main.activity_list.*
 
 class ListActivity : AppCompatActivity() {
 
     private  var tarefas  = mutableListOf<Tarefa>()
     private  var adapter  = TarefaAdapter(tarefas, this::onMessageItemClick, this::onNotaItemLongClick)
+    private  lateinit var noteSqlHelper: SQLiteRepositoryTarefa
+
     private  var receiver : TarefaDelateBroadCast? = null
     lateinit var intentFilter : IntentFilter
-    private  lateinit var noteSqlHelper: SQLiteRepositoryTarefa
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_list)
 
-        noteSqlHelper = SQLiteRepositoryTarefa(this, "tarefa")
+        noteSqlHelper = SQLiteRepositoryTarefa(this, TABLE_NAME)
 
         // notification
+
         var receiver = TarefaDelateBroadCast()
+
         intentFilter  = IntentFilter()
         intentFilter.addAction("delete_tarefa")
+
 
          for( note in this.getTarefasFromDB()){
             this.tarefas.add(note)
         }
 
+        registerReceiver(receiver, intentFilter)
         initReciclerView()
     }
+
 
     private  fun getTarefasFromDB() : ArrayList<Tarefa> {
         return noteSqlHelper.notesArray()
@@ -61,8 +69,8 @@ class ListActivity : AppCompatActivity() {
 
         alertDialog.setPositiveButton("Sim", {_,_->
             if( tarefas[posicao].completa == false ){
-                registerReceiver(receiver, intentFilter)
-                Toast.makeText(this, "Falata implementar a notificação ", Toast.LENGTH_LONG).show()
+                var intent = Intent("delete_tarefa")
+                sendBroadcast(intent)
 
             }else{
                 noteSqlHelper.remove(tarefas[posicao])

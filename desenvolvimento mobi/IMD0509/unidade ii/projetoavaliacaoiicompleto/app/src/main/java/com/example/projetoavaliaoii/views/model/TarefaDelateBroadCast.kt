@@ -10,6 +10,7 @@ class TarefaDelateBroadCast: BroadcastReceiver() {
     override fun onReceive(ctx: Context, intent: Intent) {
 
         //var on:Boolean = intent.getBooleanExtra("state",false)
+        /*
         var on : String? = intent.getStringExtra("delete_tarefa")
 
         if(on !=null ){
@@ -21,7 +22,14 @@ class TarefaDelateBroadCast: BroadcastReceiver() {
 
             Toast.makeText(ctx,"Modo Avião Desligado!", Toast.LENGTH_LONG).show()
             NotificationUtils.notificationSimple(ctx,"Modo Avião Desligado!")
-        }*/
+        }*/*/
+
+        var action = intent.action
+
+        if ( action == "delete_tarefa"){
+            Toast.makeText(ctx, " irá lançar uma notificação ", Toast.LENGTH_LONG).show()
+            NotificationUtils.notificationSimple(ctx, "Tarefa não pode ser excluida")
+        }
 
     }
 

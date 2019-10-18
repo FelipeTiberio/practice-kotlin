@@ -82,10 +82,10 @@ class SQLiteRepositoryTarefa (context: Context, override val TABBLE_NAME: String
         val id = cursor.getLong(cursor.getColumnIndex(COLUMN_ID))
         val title  = cursor.getString(cursor.getColumnIndex(COLUMN_TITLE))
         val description = cursor.getString(cursor.getColumnIndex(COLUMN_DESCRIPTION))
-        val completa = cursor.getString(cursor.getColumnIndex(COLUMN_COMPLETED))
+        val completa = cursor.getInt(cursor.getColumnIndex(COLUMN_COMPLETED))
         var comp : Boolean = false
 
-        if( completa == "true"){
+        if( completa == 1){
             comp = true
         }
 
